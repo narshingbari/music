@@ -2,7 +2,44 @@
 <html lang="en">
 
 <head>
+    <script>
+        var isNS = (navigator.appName == "Netscape") ? 1 : 0;
+        if (navigator.appName == "Netscape") document.captureEvents(Event.MOUSEDOWN || Event.MOUSEUP);
 
+        function mischandler() {
+            return false;
+        }
+
+        function mousehandler(e) {
+            var myevent = (isNS) ? e : event;
+            var eventbutton = (isNS) ? myevent.which : myevent.button;
+            if ((eventbutton == 2) || (eventbutton == 3)) return false;
+        }
+        document.oncontextmenu = mischandler;
+        document.onmousedown = mousehandler;
+        document.onmouseup = mousehandler;
+    </script>
+    <script type="text/JavaScript">
+        function killCopy(e){
+            return false
+        }
+        function reEnable(){
+            return true
+        }
+        document.onselectstart=new Function ("return false")
+        if (window.sidebar){
+            document.onmousedown=killCopy
+            document.onclick=reEnable
+        }
+    </script>
+    <script>
+      document.addEventListener("keydown", (e) => {
+          if (e.ctrlKey || e.keyCode==123) {
+              e.stopPropagation();
+              e.preventDefault();
+          }
+      });
+  </script>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
