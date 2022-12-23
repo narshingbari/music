@@ -100,7 +100,7 @@ const songs = [{
     },
     {
         id: "20",
-        songName: `Dunny 82K <br><div class="subtitle">Ap Dhillon, Gurinder Gill, Shinda Kahlon</div>`,
+        songName: `Amar Sonar Ghore full <br><div class="subtitle">Farida Yasmin</div>`,
         poster: "img/20.jpg",
     }
 ]
@@ -520,4 +520,3 @@ music.addEventListener('ended', ()=>{
             break;
     }
 })
-
